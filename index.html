@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanso Living — Hunian Modern Bergaya Swiss Bento</title>
+  <meta name="description" content="Rumah modern penuh cahaya matahari dengan akses tol 5 menit, KPR transparan, dan DP ringan. Jadwalkan kunjungan hari ini.">
+  <meta name="theme-color" content="#1E5EFF">
+
+  <!-- Favicon (inline SVG, matches brand icon) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231E5EFF'/%3E%3Cg fill='%23fff'%3E%3Crect x='7' y='7' width='7.5' height='7.5' rx='1.5'/%3E%3Crect x='17.5' y='7' width='7.5' height='7.5' rx='1.5'/%3E%3Crect x='7' y='17.5' width='7.5' height='7.5' rx='1.5'/%3E%3Crect x='17.5' y='17.5' width='7.5' height='7.5' rx='1.5'/%3E%3C/g%3E%3C/svg%3E">
+
+  <!--
+    Social share preview. IMPORTANT: og:image / og:url must be ABSOLUTE URLs.
+    After deploying, replace https://kanso-living.vercel.app with your real domain.
+  -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kanso Living">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:title" content="Kanso Living — Hunian Modern Bergaya Swiss Bento">
+  <meta property="og:description" content="Rumah modern penuh cahaya matahari dengan akses tol 5 menit, KPR transparan, dan DP ringan.">
+  <meta property="og:url" content="https://kanso-living.vercel.app/">
+  <meta property="og:image" content="https://kanso-living.vercel.app/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Rumah modern dengan geometri beton bersih di bawah sinar matahari">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kanso Living — Hunian Modern Bergaya Swiss Bento">
+  <meta name="twitter:description" content="Rumah modern penuh cahaya matahari dengan akses tol 5 menit, KPR transparan, dan DP ringan.">
+  <meta name="twitter:image" content="https://kanso-living.vercel.app/assets/og-image.jpg">
+
+  <!-- Preconnect early to reduce FOUC / font and CDN latency -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+
+  <!-- Tailwind (CDN). For production, compile with the Tailwind CLI using the same tokens below. -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    /*
+     * Design tokens. Colors reference CSS variables that app.js fills from
+     * CLIENT_CONFIG.theme — do NOT hard-code hex values here.
+     */
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'surface': 'var(--color-surface)',
+            'on-surface': 'var(--color-on-surface)',
+            'surface-subtle': 'var(--color-surface-subtle)',
+            'on-surface-muted': 'var(--color-on-surface-muted)',
+            'outline': 'var(--color-outline)',
+            'electric-blue': 'var(--color-primary)',
+            'on-electric-blue': 'var(--color-on-primary)',
+            'electric-blue-tint': 'var(--color-primary-tint)',
+            'tangerine': 'var(--color-secondary)',
+            'on-tangerine': 'var(--color-on-secondary)',
+            'tangerine-tint': 'var(--color-secondary-tint)',
+            'sunlit-yellow': 'var(--color-accent)',
+            'on-sunlit-yellow': 'var(--color-on-accent)',
+            'sunlit-yellow-tint': 'var(--color-accent-tint)',
+            'charcoal': 'var(--color-dark)',
+            'on-charcoal': 'var(--color-on-dark)',
+            'charcoal-muted': 'var(--color-dark-muted)',
+            'charcoal-surface': 'var(--color-dark-surface)',
+          },
+          borderRadius: { 'sm': '8px', 'md': '12px', 'lg': '20px', 'xl': '24px', 'full': '9999px' },
+          spacing: { 'xs': '4px', 'sm': '8px', 'md': '16px', 'lg': '24px', 'xl': '32px', '2xl': '48px', '3xl': '64px', 'section': '80px' },
+          fontFamily: {
+            'display': ['"Plus Jakarta Sans"', 'sans-serif'],
+            'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
+            'title': ['"Plus Jakarta Sans"', 'sans-serif'],
+            'body': ['"Plus Jakarta Sans"', 'sans-serif'],
+            'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+            'mono': ['"Spline Sans Mono"', 'monospace'],
+          },
+          fontSize: {
+            'display-lg': ['56px', { lineHeight: '62px', letterSpacing: '-1.5px', fontWeight: '800' }],
+            'display-lg-mobile': ['32px', { lineHeight: '38px', letterSpacing: '-0.75px', fontWeight: '800' }],
+            'headline-lg': ['40px', { lineHeight: '46px', letterSpacing: '-1px', fontWeight: '800' }],
+            'headline-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.5px', fontWeight: '800' }],
+            'headline-md': ['28px', { lineHeight: '34px', letterSpacing: '-0.5px', fontWeight: '700' }],
+            'title-lg': ['20px', { lineHeight: '28px', letterSpacing: '-0.25px', fontWeight: '700' }],
+            'title-md': ['18px', { lineHeight: '24px', letterSpacing: '-0.15px', fontWeight: '700' }],
+            'body-lg': ['18px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '400' }],
+            'body-md': ['15px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+            'label-lg': ['15px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+            'label-sm': ['13px', { lineHeight: '18px', letterSpacing: '0.1px', fontWeight: '600' }],
+            'mono-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+          },
+          transitionDuration: { 'state-change': '150ms', 'card-hover': '200ms' },
+          transitionTimingFunction: {
+            'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+            'card-hover': 'cubic-bezier(0.2, 0, 0, 1)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
+
+  <style>
+    .material-symbols-outlined {
+      display: inline-block; width: 1em; height: 1em; line-height: 1 !important;
+      box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle;
+    }
+    .icon-fill { font-variation-settings: 'FILL' 1; }
+
+    /* Mobile drawer (slide-down) */
+    .drawer { visibility: hidden; opacity: 0; transform: translateY(-8px);
+      transition: opacity 200ms cubic-bezier(.2,0,0,1), transform 200ms cubic-bezier(.2,0,0,1), visibility 0s linear 200ms; }
+    .drawer[data-open="true"] { visibility: visible; opacity: 1; transform: none; transition-delay: 0s; }
+
+    /* Modal */
+    .modal { visibility: hidden; opacity: 0; transition: opacity 200ms cubic-bezier(.2,0,0,1), visibility 0s linear 200ms; }
+    .modal[data-open="true"] { visibility: visible; opacity: 1; transition-delay: 0s; }
+    .modal-backdrop { background: color-mix(in srgb, var(--color-dark) 65%, transparent); }
+    .modal-panel { transform: translateY(16px) scale(.98); transition: transform 200ms cubic-bezier(.2,0,0,1); }
+    .modal[data-open="true"] .modal-panel { transform: none; }
+    body.scroll-locked { overflow: hidden; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+  </style>
+
+  <!-- Config first, then the app (applies theme immediately; renders on DOMContentLoaded) -->
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+</head>
+
+<!--
+  Static markup below is the page skeleton. Text/images/lists are filled from
+  CLIENT_CONFIG by app.js:
+    data-text="path.in.config"  → textContent
+    data-img="path"  / data-alt="path" → <img src / alt>
+    data-wa="general|visit|kpr" → WhatsApp deep-link
+    [data-render="…"]           → containers filled by render functions
+-->
+<body class="bg-surface text-on-surface font-body antialiased">
+  <a href="#main" data-text="ui.skipToContent" class="sr-only focus:not-sr-only focus:fixed focus:top-md focus:left-md focus:z-50 focus:bg-charcoal focus:text-on-charcoal focus:px-md focus:py-sm focus:rounded-md"></a>
+
+  <div class="min-h-screen flex flex-col">
+
+    <!-- 1. Header -->
+    <header class="sticky top-0 z-40 bg-surface border-b border-outline">
+      <div class="relative">
+        <div class="max-w-7xl mx-auto px-lg py-md flex items-center justify-between gap-lg">
+          <a href="#" class="flex items-center gap-sm shrink-0 rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-blue">
+            <span class="inline-flex items-center justify-center w-xl h-xl rounded-md bg-electric-blue text-on-electric-blue shrink-0">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true" data-text="brand.logoIcon"></span>
+            </span>
+            <span class="font-title text-title-md text-on-surface whitespace-nowrap" data-text="brand.name"></span>
+          </a>
+
+          <nav aria-label="Navigasi utama" class="hidden md:flex items-center gap-xl" data-render="nav-desktop"></nav>
+
+          <div class="flex items-center gap-sm shrink-0">
+            <a data-wa="visit" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center justify-center rounded-full bg-electric-blue text-on-electric-blue px-lg py-sm font-label text-label-lg whitespace-nowrap transition-transform duration-state-change ease-state-change hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-blue">
+              <span data-text="header.ctaLabel"></span>
+            </a>
+            <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi"
+              class="md:hidden inline-flex items-center justify-center w-2xl h-2xl rounded-full border border-outline bg-surface text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-blue">
+              <span id="menu-icon" class="material-symbols-outlined text-title-md" aria-hidden="true">menu</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile drawer -->
+        <div id="mobile-menu" class="drawer md:hidden absolute top-full inset-x-0 bg-surface border-b border-outline shadow-lg" data-open="false">
+          <nav aria-label="Navigasi seluler" class="max-w-7xl mx-auto px-lg py-md flex flex-col gap-xs" data-render="nav-mobile"></nav>
+          <div class="max-w-7xl mx-auto px-lg pb-lg">
+            <a data-wa="visit" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center rounded-full bg-electric-blue text-on-electric-blue px-lg py-md font-label text-label-lg">
+              <span data-text="header.ctaLabel"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="flex-1">
+
+      <!-- 2. Hero -->
+      <section class="relative overflow-hidden bg-surface py-2xl lg:py-section">
+        <svg aria-hidden="true" class="pointer-events-none absolute inset-0 w-full h-full text-outline opacity-60" viewBox="0 0 1440 720" fill="none" preserveAspectRatio="xMidYMid slice">
+          <circle cx="1180" cy="240" r="340" stroke="currentColor" stroke-width="1.5"></circle>
+          <circle cx="1180" cy="240" r="480" stroke="currentColor" stroke-width="1"></circle>
+          <path d="M-80 620 C 320 420, 760 680, 1480 340" stroke="currentColor" stroke-width="1.5"></path>
+        </svg>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-lg grid grid-cols-1 lg:grid-cols-12 gap-xl items-center">
+          <div class="lg:col-span-6 flex flex-col gap-lg">
+            <!-- Split badge: status block (accent) + location block -->
+            <div class="inline-flex items-stretch self-start rounded-full border border-outline bg-surface overflow-hidden shadow-sm">
+              <span class="inline-flex items-center gap-sm bg-sunlit-yellow text-on-sunlit-yellow pl-md pr-lg py-sm font-label text-label-sm uppercase tracking-wider">
+                <span class="relative flex w-sm h-sm" aria-hidden="true">
+                  <span class="absolute inline-flex w-full h-full rounded-full bg-charcoal opacity-40 animate-ping"></span>
+                  <span class="relative inline-flex w-sm h-sm rounded-full bg-charcoal"></span>
+                </span>
+                <span data-text="hero.badge.status"></span>
+              </span>
+              <span class="inline-flex items-center gap-xs pl-md pr-lg py-sm font-label text-label-sm text-on-surface">
+                <span class="material-symbols-outlined text-electric-blue text-label-lg" aria-hidden="true">location_on</span>
+                <span data-text="hero.badge.location"></span>
+              </span>
+            </div>
+            <h1 class="font-display text-display-lg-mobile lg:text-display-lg text-on-surface text-balance" data-text="hero.title"></h1>
+            <p class="font-body text-body-lg text-on-surface-muted text-pretty max-w-prose" data-text="hero.subtitle"></p>
+
+            <div class="flex flex-wrap items-center gap-md pt-sm">
+              <a data-href="hero.primaryCta.href" class="inline-flex items-center justify-center gap-sm rounded-full bg-electric-blue text-on-electric-blue px-xl py-md font-label text-label-lg transition-transform duration-state-change ease-state-change hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-blue">
+                <span data-text="hero.primaryCta.label"></span>
+                <span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_forward</span>
+              </a>
+              <a data-href="hero.secondaryCta.href" class="inline-flex items-center justify-center rounded-full bg-surface text-on-surface border border-outline px-xl py-md font-label text-label-lg transition-colors duration-state-change ease-state-change hover:bg-surface-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-blue">
+                <span data-text="hero.secondaryCta.label"></span>
+              </a>
+            </div>
+
+            <div class="grid grid-cols-3 gap-lg pt-lg border-t border-outline max-w-lg" data-render="hero-metrics"></div>
+          </div>
+
+          <div class="lg:col-span-6">
+            <div class="relative rounded-xl overflow-hidden bg-electric-blue p-sm">
+              <div class="relative rounded-lg overflow-hidden">
+                <img id="hero-img" data-img="images.hero" data-alt="hero.imageAlt" alt="" fetchpriority="high" class="w-full h-96 lg:h-[480px] object-cover">
+                <!-- Duotone tint layers: shown only when hero.imageStyle = 'duotone' -->
+                <div data-hero-tint class="hidden absolute inset-0 bg-electric-blue mix-blend-multiply opacity-75"></div>
+                <div data-hero-tint class="hidden absolute inset-0 bg-electric-blue mix-blend-screen opacity-20"></div>
+                <!-- Soft gradient keeps the white chips readable on natural photos -->
+                <div data-hero-natural class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/25"></div>
+                <div class="absolute top-lg left-lg flex flex-wrap gap-sm" data-render="hero-badges"></div>
+                <div class="absolute bottom-lg left-lg right-lg flex items-center justify-between gap-md" data-render="hero-location"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Pillars -->
+      <section id="about" class="bg-surface-subtle py-2xl lg:py-section">
+        <div class="max-w-7xl mx-auto px-lg flex flex-col gap-xl">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+            <h2 class="font-headline text-headline-lg-mobile lg:text-headline-lg text-on-surface text-balance" data-text="pillars.title"></h2>
+            <p class="font-body text-body-md text-on-surface-muted max-w-md text-pretty" data-text="pillars.subtitle"></p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-lg items-stretch" data-render="pillars"></div>
+        </div>
+      </section>
+
+      <!-- 4. Properties -->
+      <section id="properties" class="bg-surface py-2xl lg:py-section">
+        <div class="max-w-7xl mx-auto px-lg flex flex-col gap-xl">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-lg">
+            <div class="flex flex-col gap-sm">
+              <h2 class="font-headline text-headline-lg-mobile lg:text-headline-lg text-on-surface text-balance" data-text="properties.title"></h2>
+              <p class="font-body text-body-md text-on-surface-muted text-pretty" data-text="properties.subtitle"></p>
+            </div>
+            <div id="property-filters" class="flex flex-wrap items-center gap-sm" role="group" data-render="filters"></div>
+          </div>
+          <div id="property-grid" class="grid grid-cols-1 md:grid-cols-3 gap-lg items-stretch" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- 5. Facilities -->
+      <section id="facilities" class="bg-surface-subtle py-2xl lg:py-section">
+        <div class="max-w-7xl mx-auto px-lg grid grid-cols-1 lg:grid-cols-12 gap-lg items-stretch">
+          <div class="lg:col-span-5 rounded-xl bg-sunlit-yellow text-on-sunlit-yellow p-xl lg:p-2xl flex flex-col justify-between gap-xl">
+            <div class="flex flex-col gap-md">
+              <span class="font-label text-label-sm uppercase tracking-wider" data-text="facilities.eyebrow"></span>
+              <h2 class="font-headline text-headline-lg-mobile lg:text-headline-lg text-balance" data-text="facilities.title"></h2>
+              <p class="font-body text-body-md text-pretty" data-text="facilities.text"></p>
+            </div>
+            <div class="flex flex-wrap gap-sm" data-render="facility-tags"></div>
+            <div class="pt-md border-t border-on-sunlit-yellow flex items-center justify-between">
+              <span class="font-title text-title-md" data-text="facilities.highlight.label"></span>
+              <span class="material-symbols-outlined text-headline-md" aria-hidden="true" data-text="facilities.highlight.icon"></span>
+            </div>
+          </div>
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-lg" data-render="facility-gallery"></div>
+        </div>
+      </section>
+
+      <!-- 6. KPR calculator + banks + testimonials -->
+      <section id="kpr-simulation" class="bg-surface py-2xl lg:py-section">
+        <div class="max-w-7xl mx-auto px-lg grid grid-cols-1 lg:grid-cols-12 gap-xl items-start">
+          <div class="lg:col-span-7 rounded-xl bg-surface-subtle border border-outline p-xl lg:p-2xl flex flex-col gap-xl">
+            <div class="flex flex-col gap-xs">
+              <span class="font-label text-label-sm text-electric-blue" data-text="kpr.eyebrow"></span>
+              <h2 class="font-headline text-headline-md text-on-surface" data-text="kpr.title"></h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-lg">
+              <div class="flex flex-col gap-sm sm:col-span-2">
+                <label for="kpr-unit" class="font-label text-label-sm text-on-surface" data-text="kpr.labels.unit"></label>
+                <select id="kpr-unit" class="rounded-md border border-outline bg-surface px-md py-sm font-mono text-mono-md text-on-surface focus:border-electric-blue focus:ring-electric-blue"></select>
+              </div>
+              <div class="flex flex-col gap-sm sm:col-span-2">
+                <label for="kpr-price" class="font-label text-label-sm text-on-surface" data-text="kpr.labels.price"></label>
+                <div class="relative">
+                  <span id="kpr-currency" class="absolute left-md top-1/2 -translate-y-1/2 font-mono text-mono-md text-on-surface-muted pointer-events-none"></span>
+                  <input id="kpr-price" type="text" inputmode="numeric" autocomplete="off" class="w-full rounded-md border border-outline bg-surface pl-3xl pr-md py-sm font-mono text-mono-md text-on-surface tabular-nums focus:border-electric-blue focus:ring-electric-blue">
+                </div>
+              </div>
+              <div class="flex flex-col gap-sm">
+                <label for="kpr-dp" class="font-label text-label-sm text-on-surface" data-text="kpr.labels.dp"></label>
+                <select id="kpr-dp" class="rounded-md border border-outline bg-surface px-md py-sm font-mono text-mono-md text-on-surface focus:border-electric-blue focus:ring-electric-blue"></select>
+              </div>
+              <div class="flex flex-col gap-sm">
+                <label for="kpr-tenure" class="font-label text-label-sm text-on-surface" data-text="kpr.labels.tenor"></label>
+                <select id="kpr-tenure" class="rounded-md border border-outline bg-surface px-md py-sm font-mono text-mono-md text-on-surface focus:border-electric-blue focus:ring-electric-blue"></select>
+              </div>
+              <div class="flex flex-col gap-sm sm:col-span-2">
+                <label for="kpr-rate" class="font-label text-label-sm text-on-surface" data-text="kpr.labels.rate"></label>
+                <input id="kpr-rate" type="number" min="0" max="20" step="0.25" class="rounded-md border border-outline bg-surface px-md py-sm font-mono text-mono-md text-on-surface tabular-nums focus:border-electric-blue focus:ring-electric-blue">
+              </div>
+            </div>
+
+            <div class="rounded-lg bg-charcoal text-on-charcoal p-lg flex flex-col gap-lg">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-md">
+                <div class="flex flex-col gap-xs">
+                  <span class="font-label text-label-sm text-charcoal-muted" data-text="kpr.labels.monthly"></span>
+                  <output id="kpr-monthly-output" aria-live="polite" class="font-headline text-headline-md text-on-charcoal tabular-nums"></output>
+                </div>
+                <a id="kpr-apply" data-wa="kpr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-tangerine text-on-tangerine px-lg py-sm font-label text-label-lg whitespace-nowrap transition-transform duration-state-change ease-state-change hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-surface">
+                  <span data-text="kpr.labels.cta"></span>
+                </a>
+              </div>
+              <dl class="grid grid-cols-2 gap-md pt-md border-t border-charcoal-surface">
+                <div class="flex flex-col gap-xs">
+                  <dt class="font-label text-label-sm text-charcoal-muted" data-text="kpr.labels.dpAmount"></dt>
+                  <dd id="kpr-dp-output" class="font-mono text-mono-md tabular-nums"></dd>
+                </div>
+                <div class="flex flex-col gap-xs">
+                  <dt class="font-label text-label-sm text-charcoal-muted" data-text="kpr.labels.loan"></dt>
+                  <dd id="kpr-loan-output" class="font-mono text-mono-md tabular-nums"></dd>
+                </div>
+              </dl>
+            </div>
+            <p class="font-label text-label-sm text-on-surface-muted" data-text="kpr.labels.disclaimer"></p>
+          </div>
+
+          <div class="lg:col-span-5 flex flex-col gap-lg">
+            <div class="rounded-xl bg-surface-subtle border border-outline p-xl flex flex-col gap-md">
+              <span class="font-label text-label-sm text-on-surface-muted" data-text="kpr.bankTitle"></span>
+              <div class="grid grid-cols-3 gap-sm" data-render="banks"></div>
+            </div>
+            <div class="flex flex-col gap-lg" data-render="testimonials"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. CTA -->
+      <section id="consultation" class="bg-surface pb-2xl lg:pb-section">
+        <div class="max-w-7xl mx-auto px-lg">
+          <div class="rounded-xl bg-electric-blue text-on-electric-blue p-xl lg:p-3xl flex flex-col md:flex-row md:items-center justify-between gap-xl">
+            <div class="flex flex-col gap-sm max-w-xl">
+              <h2 class="font-headline text-headline-lg-mobile lg:text-headline-lg text-balance" data-text="consultation.title"></h2>
+              <p class="font-body text-body-lg text-pretty" data-text="consultation.text"></p>
+            </div>
+            <a data-wa="general" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-sm rounded-full bg-sunlit-yellow text-on-sunlit-yellow px-xl py-md font-label text-label-lg whitespace-nowrap self-start md:self-center transition-transform duration-state-change ease-state-change hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-surface">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">chat</span>
+              <span data-text="consultation.buttonLabel"></span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-on-charcoal py-2xl">
+      <div class="max-w-7xl mx-auto px-lg flex flex-col gap-xl">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-xl">
+          <div class="md:col-span-5 flex flex-col gap-md">
+            <div class="flex items-center gap-sm">
+              <span class="inline-flex items-center justify-center w-xl h-xl rounded-md bg-electric-blue text-on-electric-blue">
+                <span class="material-symbols-outlined text-title-md" aria-hidden="true" data-text="brand.logoIcon"></span>
+              </span>
+              <span class="font-title text-title-md text-on-charcoal" data-text="brand.name"></span>
+            </div>
+            <p class="font-body text-body-md text-charcoal-muted max-w-sm" data-text="footer.about"></p>
+          </div>
+          <div class="md:col-span-4 grid grid-cols-2 gap-xl" data-render="footer-columns"></div>
+          <div class="md:col-span-3 flex flex-col gap-sm">
+            <span class="font-label text-label-sm text-charcoal-muted" data-text="footer.galleryTitle"></span>
+            <span class="font-body text-body-md text-on-charcoal" data-text="footer.address"></span>
+            <span class="font-body text-body-md text-charcoal-muted" data-text="footer.hours"></span>
+          </div>
+        </div>
+        <div class="pt-lg border-t border-charcoal-surface flex flex-col sm:flex-row items-center justify-between gap-md">
+          <span class="font-label text-label-sm text-charcoal-muted" data-text="footer.copyright"></span>
+          <span class="font-label text-label-sm text-charcoal-muted" data-text="footer.tagline"></span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Property detail modal (content injected by app.js) -->
+  <div id="property-modal" class="modal fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-lg" data-open="false" aria-hidden="true">
+    <div class="modal-backdrop absolute inset-0" data-close-modal></div>
+    <div id="modal-panel" class="modal-panel relative w-full max-w-5xl max-h-[92vh] overflow-y-auto bg-surface rounded-t-xl sm:rounded-xl p-md sm:p-lg"
+      role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+      <button type="button" data-close-modal id="modal-close" class="absolute top-md right-md z-10 inline-flex items-center justify-center w-2xl h-2xl rounded-full bg-charcoal text-on-charcoal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-blue" aria-label="Tutup">
+        <span class="material-symbols-outlined text-title-md" aria-hidden="true">close</span>
+      </button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+</body>
+</html>

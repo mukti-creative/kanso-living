@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>404 — Halaman Tidak Ditemukan | Kanso Living</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231E5EFF'/%3E%3Cg fill='%23fff'%3E%3Crect x='7' y='7' width='7.5' height='7.5' rx='1.5'/%3E%3Crect x='17.5' y='7' width='7.5' height='7.5' rx='1.5'/%3E%3Crect x='7' y='17.5' width='7.5' height='7.5' rx='1.5'/%3E%3Crect x='17.5' y='17.5' width='7.5' height='7.5' rx='1.5'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Spline+Sans+Mono:wght@600&display=swap" rel="stylesheet">
+  <!-- Self-contained (no Tailwind, no relative paths) so it renders at any URL depth. -->
+  <style>
+    :root { --primary:#1E5EFF; --secondary:#FF5A1F; --accent:#FFC700; --dark:#121417; --muted:#475569; --outline:#E2E8F0; }
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: "Plus Jakarta Sans", system-ui, sans-serif; color: var(--dark); background: #fff; min-height: 100vh; display: grid; place-items: center; padding: 24px; }
+    .grid { width: 100%; max-width: 960px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+    .card { border-radius: 24px; padding: 32px; }
+    .big { grid-column: span 7; background: var(--primary); color: #fff; display: flex; flex-direction: column; justify-content: space-between; gap: 48px; min-height: 320px; }
+    .big strong { font-size: clamp(72px, 14vw, 144px); line-height: 1; letter-spacing: -4px; font-weight: 800; }
+    .yellow { grid-column: span 5; background: var(--accent); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+    .orange { grid-column: span 5; background: var(--secondary); display: flex; align-items: center; justify-content: center; font-family: "Spline Sans Mono", monospace; font-weight: 600; }
+    .light { grid-column: span 7; border: 1px solid var(--outline); background: #F8FAFC; display: flex; flex-direction: column; gap: 16px; }
+    h1 { font-size: 28px; letter-spacing: -.5px; font-weight: 800; }
+    p { color: inherit; line-height: 1.6; font-size: 15px; }
+    .light p { color: var(--muted); }
+    a.btn { align-self: flex-start; display: inline-block; text-decoration: none; background: var(--dark); color: #fff; padding: 12px 24px; border-radius: 9999px; font-weight: 700; font-size: 15px; }
+    a.btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+    @media (max-width: 720px) { .big, .yellow, .orange, .light { grid-column: span 12; } }
+  </style>
+</head>
+<body>
+  <main class="grid">
+    <section class="card big"><span>Kanso Living</span><strong>404</strong></section>
+    <section class="card yellow">
+      <h1>Halaman tidak ditemukan</h1>
+      <p>Alamat yang Anda tuju tidak tersedia atau sudah dipindahkan.</p>
+    </section>
+    <section class="card orange">ERROR_404 / NOT_FOUND</section>
+    <section class="card light">
+      <p>Silakan kembali ke beranda untuk melihat unit pilihan, simulasi KPR, dan jadwal kunjungan.</p>
+      <a class="btn" href="/">Kembali ke Beranda</a>
+    </section>
+  </main>
+</body>
+</html>
